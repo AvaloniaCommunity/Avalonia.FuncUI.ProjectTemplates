@@ -1,0 +1,37 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BasicTemplate", "BasicTemplate\BasicTemplate.fsproj", "{91940023-5CE5-42DD-946F-9C0FEFF2F530}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{D7813BF7-25FC-4955-8B03-8777CD988A4F}"
+ProjectSection(SolutionItems) = preProject
+	BasicTemplate\.template.config\template.json = BasicTemplate\.template.config\template.json
+EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FullTemplate", "FullTemplate\FullTemplate.fsproj", "{6086E46D-C048-4FFB-8304-75265F29B4D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Full", "Full", "{D548BA5C-3B71-4D12-848F-533D8A555EC3}"
+ProjectSection(SolutionItems) = preProject
+	FullTemplate\.template.config\template.json = FullTemplate\.template.config\template.json
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91940023-5CE5-42DD-946F-9C0FEFF2F530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91940023-5CE5-42DD-946F-9C0FEFF2F530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91940023-5CE5-42DD-946F-9C0FEFF2F530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91940023-5CE5-42DD-946F-9C0FEFF2F530}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6086E46D-C048-4FFB-8304-75265F29B4D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6086E46D-C048-4FFB-8304-75265F29B4D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6086E46D-C048-4FFB-8304-75265F29B4D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6086E46D-C048-4FFB-8304-75265F29B4D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{91940023-5CE5-42DD-946F-9C0FEFF2F530} = {D7813BF7-25FC-4955-8B03-8777CD988A4F}
+		{6086E46D-C048-4FFB-8304-75265F29B4D2} = {D548BA5C-3B71-4D12-848F-533D8A555EC3}
+	EndGlobalSection
+EndGlobal
