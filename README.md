@@ -8,6 +8,8 @@ This repository contains .NET Project templates for FuncUI.
 dotnet new --install JaggerJo.Avalonia.FuncUI.Templates::0.2.0-beta.1
 ```
 
+## Create an App
+
 **Create a new basic App** (only contains a simple elmish view)
 
 ```
