@@ -22,3 +22,10 @@ dotnet new funcui.basic -n NewApp
 dotnet new funcui.full -n NewApp
 ```
 
+## Run the App
+
+```
+dotnet run NewApp
+```
+
+![](img/NewApp_screenshot.png)
