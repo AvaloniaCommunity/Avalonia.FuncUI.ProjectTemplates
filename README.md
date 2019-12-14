@@ -5,7 +5,7 @@ This repository contains .NET Project templates for FuncUI.
 ## Install (Current Beta Package)
 
 ```
-dotnet new --install JaggerJo.Avalonia.FuncUI.Templates::0.2.0-beta.1
+dotnet new --install JaggerJo.Avalonia.FuncUI.Templates
 ```
 
 ## Create an App
