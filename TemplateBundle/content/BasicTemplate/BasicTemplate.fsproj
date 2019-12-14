@@ -13,10 +13,10 @@
   <ItemGroup />
 
   <ItemGroup>
-    <PackageReference Include="Avalonia.Desktop" Version="0.9.0-preview9" />
-    <PackageReference Include="JaggerJo.Avalonia.FuncUI" Version="0.2.0-beta.1" />
-    <PackageReference Include="JaggerJo.Avalonia.FuncUI.DSL" Version="0.2.0-beta.1" />
-    <PackageReference Include="JaggerJo.Avalonia.FuncUI.Elmish" Version="0.2.0-beta.1" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.9.0" />
+    <PackageReference Include="JaggerJo.Avalonia.FuncUI" Version="0.2.0" />
+    <PackageReference Include="JaggerJo.Avalonia.FuncUI.DSL" Version="0.2.0" />
+    <PackageReference Include="JaggerJo.Avalonia.FuncUI.Elmish" Version="0.2.0" />
   </ItemGroup>
 
   <ItemGroup>
