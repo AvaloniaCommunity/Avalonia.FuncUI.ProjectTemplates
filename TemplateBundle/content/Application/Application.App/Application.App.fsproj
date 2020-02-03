@@ -6,7 +6,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Counter.fs" />
+        <Compile Include="UserProfiles.fs" />
+        <Compile Include="TreeViewPage.fs" />
+        <Compile Include="BlankPage.fs" />
+        <Compile Include="Shell.fs" />
         <Compile Include="Program.fs" />
         <AvaloniaResource Include="**\*.xaml" />
     </ItemGroup>
@@ -17,7 +20,7 @@
         <PackageReference Include="JaggerJo.Avalonia.FuncUI.DSL" Version="0.2.2" />
         <PackageReference Include="JaggerJo.Avalonia.FuncUI.Elmish" Version="0.2.0" />
     </ItemGroup>
-    
+
     <ItemGroup>
         <ProjectReference Include="..\Application.Core\Application.Core.fsproj" />
     </ItemGroup>

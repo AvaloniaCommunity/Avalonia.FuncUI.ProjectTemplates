@@ -1,27 +1,9 @@
-﻿namespace Application.App
+namespace Application.App
 
-open Elmish
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
 open Avalonia.FuncUI
-open Avalonia.FuncUI.Elmish
-open Avalonia.FuncUI.Components.Hosts
 
-type MainWindow() as this =
-    inherit HostWindow()
-    do
-        base.Title <- "Application.App"
-        base.Width <- 400.0
-        base.Height <- 400.0
-        
-        //this.VisualRoot.VisualRoot.Renderer.DrawFps <- true
-        //this.VisualRoot.VisualRoot.Renderer.DrawDirtyRects <- true
-
-        Elmish.Program.mkSimple (fun () -> Counter.init) Counter.update Counter.view
-        |> Program.withHost this
-        |> Program.withConsoleTrace
-        |> Program.run
-        
 type App() =
     inherit Application()
 
@@ -33,15 +15,13 @@ type App() =
     override this.OnFrameworkInitializationCompleted() =
         match this.ApplicationLifetime with
         | :? IClassicDesktopStyleApplicationLifetime as desktopLifetime ->
-            desktopLifetime.MainWindow <- MainWindow()
+            desktopLifetime.MainWindow <- Shell.MainWindow()
         | _ -> ()
 
 module Program =
 
     [<EntryPoint>]
-    let main(args: string[]) =
-        AppBuilder
-            .Configure<App>()
-            .UsePlatformDetect()
+    let main (args: string []) =
+        AppBuilder.Configure<App>().UsePlatformDetect()
             .UseSkia()
             .StartWithClassicDesktopLifetime(args)
