@@ -1,7 +1,8 @@
-﻿namespace Application.Core.Tests
+namespace Application.Core.Tests
+
 open Expecto
 
 module Main =
-  [<EntryPoint>]
-  let main argv =
-      Tests.runTestsInAssembly defaultConfig argv
+    [<EntryPoint>]
+    let main argv =
+        Tests.runTestsInAssembly defaultConfig argv
