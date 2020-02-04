@@ -79,7 +79,13 @@ module Shell =
 
             //this.VisualRoot.VisualRoot.Renderer.DrawFps <- true
             //this.VisualRoot.VisualRoot.Renderer.DrawDirtyRects <- true
+#if DEBUG
+            this.AttachDevTools(KeyGesture(Key.F12))
+#endif
 
             Elmish.Program.mkProgram (fun () -> init) update view
             |> Program.withHost this
+#if DEBUG
+            |> Program.withConsoleTrace
+#endif
             |> Program.run

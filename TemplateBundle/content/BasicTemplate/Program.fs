@@ -3,6 +3,7 @@
 open Elmish
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
+open Avalonia.Input
 open Avalonia.FuncUI
 open Avalonia.FuncUI.Elmish
 open Avalonia.FuncUI.Components.Hosts
@@ -17,10 +18,17 @@ type MainWindow() as this =
         //this.VisualRoot.VisualRoot.Renderer.DrawFps <- true
         //this.VisualRoot.VisualRoot.Renderer.DrawDirtyRects <- true
 
+#if DEBUG
+        this.AttachDevTools(KeyGesture(Key.F12))
+#endif
+
         Elmish.Program.mkSimple (fun () -> Counter.init) Counter.update Counter.view
         |> Program.withHost this
+#if DEBUG
         |> Program.withConsoleTrace
+#endif
         |> Program.run
+
         
 type App() =
     inherit Application()
