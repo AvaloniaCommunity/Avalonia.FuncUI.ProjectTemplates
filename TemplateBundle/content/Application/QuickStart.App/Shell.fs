@@ -10,22 +10,21 @@ module Shell =
     open Avalonia
     open Avalonia.Controls
     open Avalonia.Input
-    open Avalonia.FuncUI.DSL
     open Avalonia.FuncUI
     open Avalonia.FuncUI.Builder
     open Avalonia.FuncUI.Components.Hosts
+    open Avalonia.FuncUI.DSL
     open Avalonia.FuncUI.Elmish
 
     type State =
-        /// store the child state in your main state
-        { blankpageState: BlankPage.State }
+        { aboutState: About.State }
 
     type Msg =
-        | BlankPageMsg of BlankPage.Msg
+        | AboutMsg of About.Msg
 
     let init =
-        let bpState, bpCmd = BlankPage.init
-        { blankpageState = bpState },
+        let aboutState, bpCmd = About.init
+        { aboutState = aboutState },
         /// If your children controls don't emit any commands
         /// in the init function, you can just return Cmd.none
         /// otherwise, you can use a batch operation on all of them
@@ -34,13 +33,13 @@ module Shell =
 
     let update (msg: Msg) (state: State): State * Cmd<_> =
         match msg with
-        | BlankPageMsg bpmsg ->
-            let bpState, cmd =
-                BlankPage.update bpmsg state.blankpageState
-            { state with blankpageState = bpState },
+        | AboutMsg bpmsg ->
+            let aboutState, cmd =
+                About.update bpmsg state.aboutState
+            { state with aboutState = aboutState },
             /// map the message to the kind of message 
             /// your child control needs to handle
-            Cmd.map BlankPageMsg cmd
+            Cmd.map AboutMsg cmd
 
     let view (state: State) (dispatch) =
         DockPanel.create
@@ -49,18 +48,19 @@ module Shell =
                     [ TabControl.tabStripPlacement Dock.Top
                       TabControl.viewItems
                           [ TabItem.create
-                              [ TabItem.header "Blank Page"
-                                /// Use your child control's view function to render it, also don't forget to compose
-                                /// your dispatch function so it can handle the child control's message
-                                TabItem.content (BlankPage.view state.blankpageState (BlankPageMsg >> dispatch)) ]
-                            TabItem.create
                                 [ TabItem.header "TreeView Page"
                                   /// If you don't need to be aware of the child control's state
                                   /// you can use the ViewBuilder to create the Host element and render it
                                   TabItem.content (ViewBuilder.Create<TreeViewPage.Host>([])) ]
                             TabItem.create
                                 [ TabItem.header "User Profiles Page"
-                                  TabItem.content (ViewBuilder.Create<UserProfiles.Host>([])) ] ] ] ] ]
+                                  TabItem.content (ViewBuilder.Create<UserProfiles.Host>([])) ]
+                            TabItem.create
+                                [ TabItem.header "About"
+                                  /// Use your child control's view function to render it, also don't forget to compose
+                                  /// your dispatch function so it can handle the child control's message
+                                  TabItem.content (About.view state.aboutState (AboutMsg >> dispatch)) ] ] ] ] ]
+
     /// This is the main window of your application
     /// you can do all sort of useful things here like setting heights and widths
     /// as well as attaching your dev tools that can be super useful when developing with

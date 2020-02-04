@@ -1,10 +1,8 @@
 namespace QuickStart.App
 
-/// This is a basic module
-/// to use this kind of module you should provide a state, message
-/// within the parent module you're going to use this, in this case
-/// Shell.fs
-module BlankPage =
+/// You can use modules in Avalonia.FuncUI in the same way you would do
+/// in [Elmish ](https://elmish.github.io/elmish/)
+module About =
     open Elmish
     open System.Diagnostics
     open System.Runtime.InteropServices
@@ -64,11 +62,14 @@ module BlankPage =
                         StackPanel.verticalAlignment VerticalAlignment.Top
                         StackPanel.children
                             [ TextBlock.create
-                                [ TextBlock.classes [ "title" ]
-                                  TextBlock.text "Thank you for using Avalonia.FuncUI" ]
+                                  [ TextBlock.classes [ "title" ]
+                                    TextBlock.text "Thank you for using Avalonia.FuncUI" ]
                               TextBlock.create
                                   [ TextBlock.classes [ "subtitle" ]
-                                    TextBlock.text "Here are some useful resources for your project" ] ] ]
+                                    TextBlock.text 
+                                        ("Avalonia.FuncUI is a project that provides you with an Elmish DSL for Avalonia Controls\n" + 
+                                         "for you to use in an F# idiomatic way.  We hope you like the project and spread the word :)\n" +
+                                         "Do Have questions? Reach to us  on gitter, also check the links below") ] ] ]
                     StackPanel.create
                         [ StackPanel.dock Dock.Left
                           StackPanel.horizontalAlignment HorizontalAlignment.Left
