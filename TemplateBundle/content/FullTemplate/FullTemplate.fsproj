@@ -7,6 +7,8 @@
 
     <ItemGroup>
         <Compile Include="Counter.fs" />
+        <Compile Include="About.fs" />
+        <Compile Include="Shell.fs" />
         <Compile Include="Program.fs" />
         <AvaloniaResource Include="**\*.xaml" />
     </ItemGroup>
