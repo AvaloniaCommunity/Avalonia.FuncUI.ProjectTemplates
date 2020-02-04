@@ -1,8 +1,10 @@
-namespace Application.Core.Tests
+namespace QuickStart.Core.Tests
 
+/// These are sample Unit tests that show you  briefly how you can use
+/// [Expecto](https://github.com/haf/expecto) unit test library
 module Sample =
     open Expecto
-    open Application.Core.Say
+    open QuickStart.Core.Say
 
     [<Tests>]
     let tests =

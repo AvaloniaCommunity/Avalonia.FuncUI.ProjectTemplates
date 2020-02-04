@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Application.Core.Tests", "Application.Core.Tests\Application.Core.Tests.fsproj", "{57AAA674-F50F-4EEB-A716-83D61A825069}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "QuickStart.App", "QuickStart.App\QuickStart.App.fsproj", "{2CEFEEDA-CEEB-42CD-A92C-050AEB77FD52}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Application.Core", "Application.Core\Application.Core.fsproj", "{FA19F59A-7272-4FB5-B474-CCBB008644F2}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "QuickStart.Core", "QuickStart.Core\QuickStart.Core.fsproj", "{FA19F59A-7272-4FB5-B474-CCBB008644F2}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Application.App", "Application.App\Application.App.fsproj", "{2CEFEEDA-CEEB-42CD-A92C-050AEB77FD52}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "QuickStart.Core.Tests", "QuickStart.Core.Tests\QuickStart.Core.Tests.fsproj", "{57AAA674-F50F-4EEB-A716-83D61A825069}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

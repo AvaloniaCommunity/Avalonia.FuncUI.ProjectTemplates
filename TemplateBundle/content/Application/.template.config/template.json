@@ -7,13 +7,13 @@
     "UI",
     "Elmish"
   ],
-  "name": "Avalonia FuncUI Appication",
+  "name": "Avalonia FuncUI QuickStart",
   "tags": {
     "language": "F#",
     "type": "project"
   },
-  "identity": "Avalonia.FuncUI.Application",
-  "shortName": "funcUI.application",
-  "sourceName": "Application",
+  "identity": "Avalonia.FuncUI.QuickStart",
+  "shortName": "funcUI.quickstart",
+  "sourceName": "QuickStart",
   "preferNameDirectory": true
 }

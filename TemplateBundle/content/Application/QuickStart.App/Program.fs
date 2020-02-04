@@ -1,9 +1,11 @@
-namespace Application.App
+namespace QuickStart.App
 
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
 open Avalonia.FuncUI
 
+/// This is your application you can ose the initialize method to load styles
+/// or handle Life Cycle events of your application
 type App() =
     inherit Application()
 
@@ -22,6 +24,7 @@ module Program =
 
     [<EntryPoint>]
     let main (args: string []) =
-        AppBuilder.Configure<App>().UsePlatformDetect()
+        AppBuilder.Configure<App>()
+            .UsePlatformDetect()
             .UseSkia()
             .StartWithClassicDesktopLifetime(args)

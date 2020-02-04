@@ -20,4 +20,21 @@
   <Style Selector="DockPanel.profilepanel">
     <Setter Property="Margin" Value="8" />
   </Style>
+  <Style Selector="TextBlock.title">
+    <Setter Property="FontSize" Value="24" />
+    <Setter Property="FontWeight" Value="Thin" />
+  </Style>
+  <Style Selector="TextBlock.subtitle">
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="FontWeight" Value="Thin" />
+  </Style>
+  <Style Selector="TextBlock.link">
+    <Setter Property="Foreground" Value="#009bde" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="FontStyle" Value="Oblique" />
+  </Style>
+  <Style Selector="TextBlock.link:pointerover">
+    <Setter Property="Foreground" Value="White" />
+  </Style>
 </Styles>

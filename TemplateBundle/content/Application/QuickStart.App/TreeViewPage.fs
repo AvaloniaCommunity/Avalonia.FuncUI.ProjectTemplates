@@ -1,6 +1,9 @@
-namespace Application.App
+namespace QuickStart.App
 
-
+/// This is the TreeView sample
+/// you can use the Host to create a view control that has an independent program
+/// if you want to be aware of the control's state  you should to refer to  Shell.fs and BlankPage.fs
+/// and see how they relate to each other
 module TreeViewPage =
     open Avalonia.Controls
     open Avalonia.Layout
@@ -45,8 +48,12 @@ module TreeViewPage =
             [ DockPanel.children
                 [ yield TreeView.create
                             [ TreeView.dock Dock.Left
+                              /// dataItems refers to the source of your control's data
+                              /// these are going to be iterated to fill your template's contents
                               TreeView.dataItems [ food ]
                               TreeView.itemTemplate
+                                  /// You can pass the type of your data collection
+                                  /// to have a safe type reference in the create function
                                   (DataTemplateView<Taxonomy>
                                       .create
                                           ((fun data -> data.Children),
@@ -54,6 +61,8 @@ module TreeViewPage =
                                                TextBlock.create
                                                    [ TextBlock.onTapped (fun _ -> dispatch (ShowDetail data))
                                                      TextBlock.text data.Name ]))) ]
+                  /// Use Pattern Matching to decide what you want to show
+                  /// based on your state's content
                   match state.detail with
                   | Some taxonomy ->
                       yield StackPanel.create
@@ -76,7 +85,15 @@ module TreeViewPage =
     type Host() as this =
         inherit Hosts.HostControl()
         do
-            Elmish.Program.mkSimple (fun () -> init) update view
+            /// You can use `.mkProgram` to pass Commands around
+            /// if you decide to use it, you have to also return a Command in the initFn
+            /// (init, Cmd.none)
+            /// you can learn more at https://elmish.github.io/elmish/basics.html
+            let startFn () =
+                init
+            Elmish.Program.mkSimple startFn update view
             |> Program.withHost this
+#if DEBUG
             |> Program.withConsoleTrace
+#endif
             |> Program.run

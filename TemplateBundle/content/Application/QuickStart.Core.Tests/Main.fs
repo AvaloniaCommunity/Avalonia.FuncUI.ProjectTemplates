@@ -1,4 +1,4 @@
-namespace Application.Core.Tests
+namespace QuickStart.Core.Tests
 
 open Expecto
 
