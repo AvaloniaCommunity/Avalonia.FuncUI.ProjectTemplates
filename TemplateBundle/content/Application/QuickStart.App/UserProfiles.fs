@@ -88,7 +88,7 @@ module UserProfiles =
             /// you can learn more at https://elmish.github.io/elmish/basics.html
             let startFn () =
                 init
-            Elmish.Program.mkSimple startFn update view
+            Elmish.Program.mkProgram startFn update view
             |> Program.withHost this
 #if DEBUG
             |> Program.withConsoleTrace
