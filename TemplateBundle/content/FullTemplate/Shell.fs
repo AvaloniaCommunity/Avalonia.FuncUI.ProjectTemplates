@@ -59,10 +59,10 @@ module Shell =
                       TabControl.viewItems
                           [ TabItem.create
                                 [ TabItem.header "Counter Sample"
-                                    TabItem.content (Counter.view state.counterState (CounterMsg >> dispatch)) ]
+                                  TabItem.content (Counter.view state.counterState (CounterMsg >> dispatch)) ]
                             TabItem.create
                                 [ TabItem.header "About"
-                                    TabItem.content (About.view state.aboutState (AboutMsg >> dispatch)) ] ] ] ] ]
+                                  TabItem.content (About.view state.aboutState (AboutMsg >> dispatch)) ] ] ] ] ]
 
     /// This is the main window of your application
     /// you can do all sort of useful things here like setting heights and widths
