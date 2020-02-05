@@ -1,4 +1,4 @@
-namespace QuickStart.App
+namespace QuickStart
 
 /// You can use modules in Avalonia.FuncUI in the same way you would do
 /// in [Elmish ](https://elmish.github.io/elmish/)

@@ -1,4 +1,4 @@
-namespace QuickStart.App
+namespace QuickStart
 
 /// This is the main module of your application
 /// here you handle all of your child pages as well as their
@@ -68,7 +68,7 @@ module Shell =
     type MainWindow() as this =
         inherit HostWindow()
         do
-            base.Title <- "Application.App"
+            base.Title <- "Quickstart"
             base.Width <- 800.0
             base.Height <- 600.0
             base.MinWidth <- 800.0

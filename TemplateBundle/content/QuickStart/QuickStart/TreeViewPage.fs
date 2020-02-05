@@ -1,4 +1,4 @@
-namespace QuickStart.App
+namespace QuickStart
 
 /// This is the TreeView sample
 /// you can use the Host to create a view control that has an independent program
