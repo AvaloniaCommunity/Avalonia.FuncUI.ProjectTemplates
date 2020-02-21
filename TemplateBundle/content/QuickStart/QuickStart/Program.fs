@@ -1,4 +1,4 @@
-namespace FullTemplate
+namespace QuickStart
 
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
@@ -12,7 +12,7 @@ type App() =
     override this.Initialize() =
         this.Styles.Load "avares://Avalonia.Themes.Default/DefaultTheme.xaml"
         this.Styles.Load "avares://Avalonia.Themes.Default/Accents/BaseDark.xaml"
-        this.Styles.Load "avares://FullTemplate/Styles.xaml"
+        this.Styles.Load "avares://QuickStart/Styles.xaml"
 
     override this.OnFrameworkInitializationCompleted() =
         match this.ApplicationLifetime with

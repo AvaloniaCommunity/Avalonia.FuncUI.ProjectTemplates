@@ -1,0 +1,40 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <Style Selector="Button /template/ ContentPresenter">
+    <Setter Property="CornerRadius" Value="5" />
+  </Style>
+  <Style Selector="WrapPanel.userprofilesgrid">
+    <Setter Property="Margin" Value="24" />
+  </Style>
+  <Style Selector="WrapPanel.userprofile">
+    <Setter Property="Margin" Value="12" />
+    <Setter Property="Height" Value="150" />
+    <Setter Property="Width" Value="350" />
+  </Style>
+  <Style Selector="Image.profileimg">
+    <Setter Property="Height" Value="150" />
+    <Setter Property="Width" Value="150" />
+  </Style>
+  <Style Selector="DockPanel.profilepanel">
+    <Setter Property="Margin" Value="8" />
+  </Style>
+  <Style Selector="TextBlock.title">
+    <Setter Property="FontSize" Value="24" />
+    <Setter Property="FontWeight" Value="Thin" />
+  </Style>
+  <Style Selector="TextBlock.subtitle">
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="FontWeight" Value="Thin" />
+  </Style>
+  <Style Selector="TextBlock.link">
+    <Setter Property="Foreground" Value="#009bde" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="FontStyle" Value="Oblique" />
+  </Style>
+  <Style Selector="TextBlock.link:pointerover">
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+</Styles>

@@ -6,7 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Counter.fs" />
+        <Compile Include="UserProfiles.fs" />
+        <Compile Include="TreeViewPage.fs" />
         <Compile Include="About.fs" />
         <Compile Include="Shell.fs" />
         <Compile Include="Program.fs" />
@@ -21,6 +22,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Remove=".template.config\**" />
+        <ProjectReference Include="..\QuickStart.Core\QuickStart.Core.fsproj" />
     </ItemGroup>
 </Project>
