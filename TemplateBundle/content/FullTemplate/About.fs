@@ -4,6 +4,8 @@ namespace FullTemplate
 /// in [Elmish ](https://elmish.github.io/elmish/)
 module About =
     open Elmish
+    open Avalonia.FuncUI
+    open Avalonia.FuncUI.Types
     open System.Diagnostics
     open System.Runtime.InteropServices
     open Avalonia.Controls
@@ -52,67 +54,99 @@ module About =
                 Process.Start("open", url) |> ignore
             state, Cmd.none
 
+    let headerView (dock: Dock): IView = 
+        StackPanel.create [
+            StackPanel.dock dock
+            StackPanel.verticalAlignment VerticalAlignment.Top
+            StackPanel.children [
+                TextBlock.create [
+                    TextBlock.classes [ "title" ]
+                    TextBlock.text "Thank you for using Avalonia.FuncUI"
+                ]
+                TextBlock.create [
+                    TextBlock.classes [ "subtitle" ]
+                    TextBlock.text (
+                        "Avalonia.FuncUI is a project that provides you with an Elmish DSL for Avalonia Controls\n" + 
+                        "for you to use in an F# idiomatic way. We hope you like the project and spread the word :)\n" +
+                        "Questions ? Reach to us on Gitter, also check the links below"
+                    )
+                ]
+            ]
+        ] |> Helpers.generalize
+        
+        
+    let avaloniaLinksView (dock: Dock) (dispatch: Msg -> unit) : IView = 
+        StackPanel.create [
+            StackPanel.dock dock
+            StackPanel.horizontalAlignment HorizontalAlignment.Left
+            StackPanel.children [
+                TextBlock.create [
+                    TextBlock.classes [ "title" ]
+                    TextBlock.text "Avalonia"
+                ]
+                TextBlock.create [
+                    TextBlock.classes [ "link" ]
+                    TextBlock.onTapped(fun _ -> dispatch (OpenUrl AvaloniaRepository))
+                    TextBlock.text "Avalonia Repository"
+                ]
+                TextBlock.create [
+                    TextBlock.classes [ "link" ]
+                    TextBlock.onTapped(fun _ -> dispatch (OpenUrl AvaloniaAwesome))
+                    TextBlock.text "Awesome Avalonia"
+                ]
+                TextBlock.create [
+                    TextBlock.classes [ "link" ]
+                    TextBlock.onTapped(fun _ -> dispatch (OpenUrl AvaloniaGitter))
+                    TextBlock.text "Gitter"
+                ]
+                TextBlock.create [
+                    TextBlock.classes [ "link" ]
+                    TextBlock.onTapped(fun _ -> dispatch (OpenUrl AvaloniaCommunity))
+                    TextBlock.text "Avalonia Community"
+                ]
+            ]
+        ] |> Helpers.generalize
+        
+    let avaloniaFuncUILinksView (dock: Dock) (dispatch: Msg -> unit) : IView = 
+        StackPanel.create [
+            StackPanel.dock dock
+            StackPanel.horizontalAlignment HorizontalAlignment.Right
+            StackPanel.children [
+                TextBlock.create [
+                    TextBlock.classes [ "title" ]
+                    TextBlock.text "Avalonia.FuncUI"
+                ]
+                TextBlock.create [
+                    TextBlock.classes [ "link" ]
+                    TextBlock.onTapped(fun _ -> dispatch (OpenUrl FuncUIRepository))
+                    TextBlock.text "Avalonia.FuncUI Repository"
+                ]
+                TextBlock.create [
+                    TextBlock.classes [ "link" ]
+                    TextBlock.onTapped(fun _ -> dispatch (OpenUrl FuncUIGitter))
+                    TextBlock.text "Gitter"
+                ]
+                TextBlock.create [
+                    TextBlock.classes [ "link" ]
+                    TextBlock.onTapped(fun _ -> dispatch (OpenUrl FuncUINetTemplates))
+                    TextBlock.text ".Net Templates"
+                ]
+                TextBlock.create [
+                    TextBlock.classes [ "link" ]
+                    TextBlock.onTapped(fun _ -> dispatch (OpenUrl FuncUISamples))
+                    TextBlock.text "Samples"
+                ] 
+            ]
+        ] |> Helpers.generalize
+        
     let view (state: State) (dispatch: Msg -> unit) =
-        DockPanel.create
-            [ DockPanel.horizontalAlignment HorizontalAlignment.Center
-              DockPanel.verticalAlignment VerticalAlignment.Top
-              DockPanel.children
-                  [ StackPanel.create
-                      [ StackPanel.dock Dock.Top
-                        StackPanel.verticalAlignment VerticalAlignment.Top
-                        StackPanel.children
-                            [ TextBlock.create
-                                [ TextBlock.classes [ "title" ]
-                                  TextBlock.text "Thank you for using Avalonia.FuncUI" ]
-                              TextBlock.create
-                                  [ TextBlock.classes [ "subtitle" ]
-                                    TextBlock.text 
-                                        ("Avalonia.FuncUI is a project that provides you with an Elmish DSL for Avalonia Controls\n" + 
-                                         "for you to use in an F# idiomatic way.  We hope you like the project and spread the word :)\n" +
-                                         "Do Have questions? Reach to us  on gitter, also check the links below") ] ] ]
-                    StackPanel.create
-                        [ StackPanel.dock Dock.Left
-                          StackPanel.horizontalAlignment HorizontalAlignment.Left
-                          StackPanel.children
-                              [ TextBlock.create
-                                  [ TextBlock.classes [ "title" ]
-                                    TextBlock.text "Avalonia" ]
-                                TextBlock.create
-                                    [ TextBlock.classes [ "link" ]
-                                      TextBlock.onTapped(fun _ -> dispatch (OpenUrl AvaloniaRepository))
-                                      TextBlock.text "Avalonia Repository" ]
-                                TextBlock.create
-                                    [ TextBlock.classes [ "link" ]
-                                      TextBlock.onTapped(fun _ -> dispatch (OpenUrl AvaloniaAwesome))
-                                      TextBlock.text "Awesome Avalonia" ]
-                                TextBlock.create
-                                    [ TextBlock.classes [ "link" ]
-                                      TextBlock.onTapped(fun _ -> dispatch (OpenUrl AvaloniaGitter))
-                                      TextBlock.text "Gitter" ]
-                                TextBlock.create
-                                    [ TextBlock.classes [ "link" ]
-                                      TextBlock.onTapped(fun _ -> dispatch (OpenUrl AvaloniaCommunity))
-                                      TextBlock.text "Avalonia Community" ] ] ]
-                    StackPanel.create
-                        [ StackPanel.dock Dock.Right
-                          StackPanel.horizontalAlignment HorizontalAlignment.Right
-                          StackPanel.children
-                              [ TextBlock.create
-                                  [ TextBlock.classes [ "title" ]
-                                    TextBlock.text "Avalonia.FuncUI" ]
-                                TextBlock.create
-                                    [ TextBlock.classes [ "link" ]
-                                      TextBlock.onTapped(fun _ -> dispatch (OpenUrl FuncUIRepository))
-                                      TextBlock.text "Avalonia.FuncUI Repository" ]
-                                TextBlock.create
-                                    [ TextBlock.classes [ "link" ]
-                                      TextBlock.onTapped(fun _ -> dispatch (OpenUrl FuncUIGitter))
-                                      TextBlock.text "Gitter" ]
-                                TextBlock.create
-                                    [ TextBlock.classes [ "link" ]
-                                      TextBlock.onTapped(fun _ -> dispatch (OpenUrl FuncUINetTemplates))
-                                      TextBlock.text ".Net Templates" ]
-                                TextBlock.create
-                                    [ TextBlock.classes [ "link" ]
-                                      TextBlock.onTapped(fun _ -> dispatch (OpenUrl FuncUISamples))
-                                      TextBlock.text "Samples" ] ] ] ] ]
+        DockPanel.create [
+            DockPanel.horizontalAlignment HorizontalAlignment.Center
+            DockPanel.verticalAlignment VerticalAlignment.Top
+            DockPanel.margin (0.0, 20.0, 0.0, 0.0)
+            DockPanel.children [
+                headerView Dock.Top
+                avaloniaLinksView Dock.Left dispatch
+                avaloniaFuncUILinksView Dock.Right dispatch
+            ]
+        ]
