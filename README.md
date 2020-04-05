@@ -22,6 +22,12 @@ dotnet new funcui.basic -n NewApp
 dotnet new funcui.full -n NewApp
 ```
 
+**Create a new Quick Start App** (contains a bunch of pages and other extras.)
+
+```
+dotnet new funcui.quickstart -n NewApp
+```
+
 ## Run the App
 
 ```
