@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>0.2.0</PackageVersion>
+    <PackageVersion>0.4.0</PackageVersion>
     <PackageId>JaggerJo.Avalonia.FuncUI.Templates</PackageId>
     <Title>Avalonia.FuncUI Templates</Title>
-    <Authors>Josua Jäger, Kevin Schneider</Authors>
+    <Authors>Josua Jäger, Kevin Schneider, Angel Daniel Munoz Gonzalez</Authors>
     <Description>Templates for Avalonia.FuncUI</Description>
     <PackageTags>dotnet-new;templates;avalonia;funcui;mvu</PackageTags>
     <TargetFramework>netstandard2.0</TargetFramework>
