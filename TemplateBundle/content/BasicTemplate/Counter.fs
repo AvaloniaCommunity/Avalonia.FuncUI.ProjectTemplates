@@ -4,18 +4,21 @@ module Counter =
     open Avalonia.Controls
     open Avalonia.FuncUI.DSL
     open Avalonia.Layout
-    
-    type State = { count : int }
+
+    type State = { count: int }
     let init = { count = 0 }
 
-    type Msg = Increment | Decrement | Reset
+    type Msg =
+        | Increment
+        | Decrement
+        | Reset
 
-    let update (msg: Msg) (state: State) : State =
+    let update (msg: Msg) (state: State): State =
         match msg with
         | Increment -> { state with count = state.count + 1 }
         | Decrement -> { state with count = state.count - 1 }
         | Reset -> init
-    
+
     let view (state: State) (dispatch) =
         DockPanel.create [
             DockPanel.children [
@@ -23,7 +26,7 @@ module Counter =
                     Button.dock Dock.Bottom
                     Button.onClick (fun _ -> dispatch Reset)
                     Button.content "reset"
-                ]                
+                ]
                 Button.create [
                     Button.dock Dock.Bottom
                     Button.onClick (fun _ -> dispatch Decrement)
@@ -42,4 +45,4 @@ module Counter =
                     TextBlock.text (string state.count)
                 ]
             ]
-        ]       
+        ]
