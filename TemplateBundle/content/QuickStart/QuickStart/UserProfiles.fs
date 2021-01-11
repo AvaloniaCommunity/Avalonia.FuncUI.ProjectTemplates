@@ -87,7 +87,7 @@ module UserProfiles =
             WrapPanel.classes [ "userprofilesgrid" ]
             WrapPanel.children [
                 for user in state.users do
-                    yield userProfile user
+                    userProfile user
             ]
         ]
 
