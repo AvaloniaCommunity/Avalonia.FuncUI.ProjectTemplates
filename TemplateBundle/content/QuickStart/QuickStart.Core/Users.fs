@@ -3,8 +3,8 @@ namespace QuickStart.Core
 open System.Net.Http
 open System.IO
 
-/// This is a sample module that grabs users from 
-/// https://randomuser.me/ and also showcases how can you leverage 
+/// This is a sample module that grabs users from
+/// https://randomuser.me/ and also showcases how can you leverage
 /// F# TypeProviders in an idiomatic way that fits F# style
 /// Use modules like this to abstract logic and allow yourself to re-use
 /// code among projects (other apps, or server side logic)
@@ -15,8 +15,11 @@ module Users =
     let getUsers (page: int option) (limit: int option) =
         let page = defaultArg page 1
         let limit = defaultArg limit 10
+
         async {
-            let url = sprintf "%s?page=%i&results=%i" baseurl page limit
+            let url =
+                sprintf "%s?page=%i&results=%i" baseurl page limit
+
             let! sample = UserEndpoint.AsyncLoad(url)
             return sample.Results
         }
@@ -37,5 +40,4 @@ module Users =
             return user, name
         }
 
-    let getFulNameStr (name: UserEndpoint.Name) =
-        sprintf "%s %s" name.First name.Last
+    let getFulNameStr (name: UserEndpoint.Name) = sprintf "%s %s" name.First name.Last

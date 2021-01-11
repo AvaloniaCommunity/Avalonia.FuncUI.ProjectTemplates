@@ -16,14 +16,13 @@ module Shell =
     open Avalonia.FuncUI.DSL
     open Avalonia.FuncUI.Elmish
 
-    type State =
-        { aboutState: About.State }
+    type State = { aboutState: About.State }
 
-    type Msg =
-        | AboutMsg of About.Msg
+    type Msg = AboutMsg of About.Msg
 
     let init =
         let aboutState, bpCmd = About.init
+
         { aboutState = aboutState },
         /// If your children controls don't emit any commands
         /// in the init function, you can just return Cmd.none
@@ -34,32 +33,39 @@ module Shell =
     let update (msg: Msg) (state: State): State * Cmd<_> =
         match msg with
         | AboutMsg bpmsg ->
-            let aboutState, cmd =
-                About.update bpmsg state.aboutState
+            let aboutState, cmd = About.update bpmsg state.aboutState
+
             { state with aboutState = aboutState },
-            /// map the message to the kind of message 
+            /// map the message to the kind of message
             /// your child control needs to handle
             Cmd.map AboutMsg cmd
 
     let view (state: State) (dispatch) =
-        DockPanel.create
-            [ DockPanel.children
-                [ TabControl.create
-                    [ TabControl.tabStripPlacement Dock.Top
-                      TabControl.viewItems
-                          [ TabItem.create
-                                [ TabItem.header "TreeView Page"
-                                  /// If you don't need to be aware of the child control's state
-                                  /// you can use the ViewBuilder to create the Host element and render it
-                                  TabItem.content (ViewBuilder.Create<TreeViewPage.Host>([])) ]
-                            TabItem.create
-                                [ TabItem.header "User Profiles Page"
-                                  TabItem.content (ViewBuilder.Create<UserProfiles.Host>([])) ]
-                            TabItem.create
-                                [ TabItem.header "About"
-                                  /// Use your child control's view function to render it, also don't forget to compose
-                                  /// your dispatch function so it can handle the child control's message
-                                  TabItem.content (About.view state.aboutState (AboutMsg >> dispatch)) ] ] ] ] ]
+        DockPanel.create [
+            DockPanel.children [
+                TabControl.create [
+                    TabControl.tabStripPlacement Dock.Top
+                    TabControl.viewItems [
+                        TabItem.create [
+                            TabItem.header "TreeView Page"
+                            /// If you don't need to be aware of the child control's state
+                            /// you can use the ViewBuilder to create the Host element and render it
+                            TabItem.content (ViewBuilder.Create<TreeViewPage.Host>([]))
+                        ]
+                        TabItem.create [
+                            TabItem.header "User Profiles Page"
+                            TabItem.content (ViewBuilder.Create<UserProfiles.Host>([]))
+                        ]
+                        TabItem.create [
+                            TabItem.header "About"
+                            /// Use your child control's view function to render it, also don't forget to compose
+                            /// your dispatch function so it can handle the child control's message
+                            TabItem.content (About.view state.aboutState (AboutMsg >> dispatch))
+                        ]
+                    ]
+                ]
+            ]
+        ]
 
     /// This is the main window of your application
     /// you can do all sort of useful things here like setting heights and widths
@@ -67,6 +73,7 @@ module Shell =
     /// Avalonia
     type MainWindow() as this =
         inherit HostWindow()
+
         do
             base.Title <- "Quickstart"
             base.Width <- 800.0
@@ -76,13 +83,16 @@ module Shell =
 
             //this.VisualRoot.VisualRoot.Renderer.DrawFps <- true
             //this.VisualRoot.VisualRoot.Renderer.DrawDirtyRects <- true
+//-:cnd:noEmit
 #if DEBUG
             this.AttachDevTools(KeyGesture(Key.F12))
 #endif
-
+//+:cnd:noEmit
             Elmish.Program.mkProgram (fun () -> init) update view
             |> Program.withHost this
+//-:cnd:noEmit
 #if DEBUG
             |> Program.withConsoleTrace
 #endif
+//+:cnd:noEmit
             |> Program.run
